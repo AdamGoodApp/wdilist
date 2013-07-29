@@ -1,0 +1,18 @@
+<h1>Listing items</h1>
+<div class="ui-widget-content">
+  <div id="accordion">
+    <% @items.each do |item| %>
+      <h1><%= item.name %></h1>
+      <ul>
+          <li><%= item.user.name %></li>
+          <li><%= item.eta %></li>
+          <li><%= item.description %></li>
+          <li><%= link_to 'Show', item %></li>
+          <li><%= link_to 'Edit', edit_item_path(item) %></li>
+          <li><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'New Item', new_item_path %>
